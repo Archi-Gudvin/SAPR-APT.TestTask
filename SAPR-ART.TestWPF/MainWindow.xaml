@@ -5,7 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAPR_ART.TestWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="az_EZ_Turnbuckle"
+        Height="450" Width="850"
+        MinHeight="450" MinWidth="850"
+        MaxHeight="450" MaxWidth="850">
+    <Window.Resources>
+        <Style x:Key="Text" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+       
+        <Style x:Key="HeaderText" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="InputText" TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+
+        <Style x:Key="List" TargetType="ComboBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+
+        <Style x:Key="AcceptingTheValue" TargetType="CheckBox">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem>
@@ -15,9 +49,9 @@
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel>
+                    <Grid>
 
-                    </StackPanel>
+                    </Grid>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
@@ -28,78 +62,122 @@
                 </TabItem.Header>
                 <TabItem.Content>
                     <Grid>
-                        <!--задать минимальные размеры элементам-->
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="21*"/>
+                            <RowDefinition Height="27*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="90*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="105*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="105*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!--в стили grid column-->
-                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Торцевая пластина" VerticalAlignment="Top" Grid.Row="1"/>
-                        <TextBlock Text="Продольная пластина" Grid.Row="3"/>
-                        <TextBlock Text="Гайка" Grid.Row="4"/>
+                        <TextBlock Text="Торцевая пластина" Grid.Row="1" Grid.Column="0" Style="{StaticResource Text}"/>
+                        <TextBlock Text="Продольная пластина" Grid.Row="3" Grid.Column="0" Style="{StaticResource Text}"/>
+                        <TextBlock Text="Гайка" Grid.Row="4" Grid.Column="0" Style="{StaticResource Text}"/>
 
-                        <CheckBox Grid.Row="1" Grid.Column="1"/>
-                        <CheckBox Grid.Row="3" Grid.Column="1"/>
-                        <CheckBox Grid.Row="4" Grid.Column="1"/>
+                        <CheckBox Grid.Row="1" Grid.Column="1" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="3" Grid.Column="1" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="4" Grid.Column="1" Style="{StaticResource AcceptingTheValue}"/>
 
-                        <TextBox Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="47"/>
-                        <TextBox Grid.Row="1" Grid.Column="2"/>
-                        <TextBox Grid.Row="3" Grid.Column="2"/>
-                        <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"/>
+                        <TextBlock Text="t" Grid.Column="2" Style="{StaticResource HeaderText}"/>
+                        <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource InputText}"/>
+                        <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource List}" MinWidth="150" >
+                            <TextBlock>N16_5915_70</TextBlock>
+                        </ComboBox>
 
-                        <TextBox Grid.Row="1" Grid.Column="3"/>
-                        <TextBox Grid.Row="3" Grid.Column="3"/>
+                        <TextBlock Text="b" Grid.Column="3" Style="{StaticResource HeaderText}"/>
+                        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource InputText}"/>
 
-                        <TextBox Grid.Row="1" Grid.Column="4"/>
+                        <TextBlock Text="h" Grid.Column="4" Style="{StaticResource HeaderText}"/>
+                        <TextBox Grid.Row="1" Grid.Column="4" Style="{StaticResource InputText}"/>
 
-                        <CheckBox Grid.Row="1" Grid.Column="5"/>
-                        <CheckBox Grid.Row="3" Grid.Column="5"/>
-                        <CheckBox Grid.Row="4" Grid.Column="5"/>
+                        <CheckBox Grid.Row="1" Grid.Column="5" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="3" Grid.Column="5" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="4" Grid.Column="5" Style="{StaticResource AcceptingTheValue}"/>
 
-                        <ComboBox Grid.Row="1" Grid.Column="6"/>
-                        <ComboBox Grid.Row="3" Grid.Column="6"/>
-                        <ComboBox Grid.Row="4" Grid.Column="6"/>
+                        <TextBlock Text="Материал" Grid.Column="6" Style="{StaticResource HeaderText}"/>
+                        <ComboBox Grid.Row="1" Grid.Column="6" Style="{StaticResource List}" MinWidth="150">
+                            <TextBlock>Steel_undefined</TextBlock>
+                        </ComboBox>
+                        <ComboBox Grid.Row="3" Grid.Column="6" Style="{StaticResource List}" MinWidth="150">
+                            <TextBlock>Steel_undefined</TextBlock>
+                        </ComboBox>
+                        <ComboBox Grid.Row="4" Grid.Column="6" Style="{StaticResource List}" MinWidth="150">
+                            <TextBlock>Steel_undefined</TextBlock>
+                        </ComboBox>
 
-                        <CheckBox Grid.Row="1" Grid.Column="7"/>
-                        <CheckBox Grid.Row="3" Grid.Column="7"/>
-                        <CheckBox Grid.Row="4" Grid.Column="7"/>
+                        <CheckBox Grid.Row="1" Grid.Column="7" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="3" Grid.Column="7" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="4" Grid.Column="7" Style="{StaticResource AcceptingTheValue}"/>
 
-                        <TextBox Grid.Row="1" Grid.Column="8"/>
-                        <TextBox Grid.Row="2" Grid.Column="8"/>
-                        <TextBox Grid.Row="3" Grid.Column="8"/>
-                        <TextBox Grid.Row="4" Grid.Column="8"/>
 
-                        <TextBox Grid.Row="1" Grid.Column="9"/>
-                        <TextBox Grid.Row="2" Grid.Column="9"/>
-                        <TextBox Grid.Row="3" Grid.Column="9"/>
-                        <TextBox Grid.Row="4" Grid.Column="9"/>
+                        <TextBlock Text="Нумерация" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource HeaderText}"/>
+                        <TextBox Grid.Row="1" Grid.Column="8" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="2" Grid.Column="8" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="3" Grid.Column="8" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="4" Grid.Column="8" Style="{StaticResource InputText}"/>
 
-                        <CheckBox Grid.Row="1" Grid.Column="10"/>
-                        <CheckBox Grid.Row="3" Grid.Column="10"/>
-                        <CheckBox Grid.Row="4" Grid.Column="10"/>
+                        <TextBox Grid.Row="1" Grid.Column="9" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="2" Grid.Column="9" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="3" Grid.Column="9" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="4" Grid.Column="9" Style="{StaticResource InputText}"/>
 
-                        <TextBox Grid.Row="1" Grid.Column="11"/>
-                        <TextBox Grid.Row="3" Grid.Column="11"/>
-                        <TextBox Grid.Row="4" Grid.Column="11"/>
+                        <CheckBox Grid.Row="1" Grid.Column="10" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="3" Grid.Column="10" Style="{StaticResource AcceptingTheValue}"/>
+                        <CheckBox Grid.Row="4" Grid.Column="10" Style="{StaticResource AcceptingTheValue}"/>
+
+                        <TextBlock Text="Имя" Grid.Column="11" Style="{StaticResource HeaderText}"/>
+                        <TextBox Grid.Row="1" Grid.Column="11" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="3" Grid.Column="11" Style="{StaticResource InputText}"/>
+                        <TextBox Grid.Row="4" Grid.Column="11" Style="{StaticResource InputText}"/>
+
+                        <Image Source="resources/figure.png" Grid.Column="3" Grid.ColumnSpan="7" Margin="53,61,54,0" Grid.Row="5"/>
+
+                        <WrapPanel Grid.ColumnSpan="6" Margin="10,124,156,0" Grid.Row="5" Grid.RowSpan="2" Grid.Column="1" >
+                            <TextBlock Text="Польз. атрб. 1"  Style="{StaticResource Text}"/>
+                            <CheckBox  Style="{StaticResource AcceptingTheValue}"/>
+                            <TextBox MinWidth="85"  MinHeight="22" Style="{StaticResource InputText}"/>
+                        </WrapPanel>
+
+                        <WrapPanel Grid.ColumnSpan="4" Margin="37,43,153,49" Grid.Row="5" Grid.Column="3" >
+                            <CheckBox  Style="{StaticResource AcceptingTheValue}"/>
+                            <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource List}" MinWidth="60">
+                                <TextBlock>Да</TextBlock>
+                                <TextBlock>Нет</TextBlock>
+                            </ComboBox>
+                        </WrapPanel>
+
+                        <WrapPanel Grid.ColumnSpan="4" Margin="149,43,41,49" Grid.Row="5" Grid.Column="6" >
+                            <CheckBox  Style="{StaticResource AcceptingTheValue}"/>
+                            <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource List}" MinWidth="60">
+                                <TextBlock>Да</TextBlock>
+                                <TextBlock>Нет</TextBlock>
+                            </ComboBox>
+                        </WrapPanel>
+
+                        <WrapPanel Grid.Column="6" Grid.ColumnSpan="5" Margin="56,124,23,0" Grid.Row="5" Grid.RowSpan="2">
+                            <TextBlock Text="Польз. атрб. 1"  Style="{StaticResource Text}"/>
+                            <CheckBox  Style="{StaticResource AcceptingTheValue}"/>
+                            <TextBox MinWidth="85"  MinHeight="22" Style="{StaticResource InputText}"/>
+                        </WrapPanel>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
